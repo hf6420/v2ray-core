@@ -6,7 +6,7 @@ var resp400 = &ResponseConfig{
 	},
 	Status: &Status{
 		Code:   "301",
-		Reason: "{"code":"301","msg":"tonken is null"}",
+		Reason: "{'code':'301','msg':'tonken is null'}",
 	},
 	Header: []*Header{
 		{
