@@ -5,8 +5,8 @@ var resp400 = &ResponseConfig{
 		Value: "1.1",
 	},
 	Status: &Status{
-		Code:   "400",
-		Reason: "Bad Request",
+		Code:   "301",
+		Reason: "{"code":"301","msg":"tonken is null"}",
 	},
 	Header: []*Header{
 		{
