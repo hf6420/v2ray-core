@@ -18,8 +18,8 @@ cleanup() { rm -rf "$TMP"; }
 trap cleanup INT TERM ERR
 
 get_source() {
-	echo ">>> Clone v2fly/v2ray-core repo..."
-	git clone https://github.com/v2fly/v2ray-core.git
+	echo ">>> Clone hf6420/v2ray-core repo..."
+	git clone https://github.com/hf6420/v2ray-core.git
 	cd v2ray-core
 	go mod download
 }
@@ -33,7 +33,7 @@ build_v2() {
 		local VERSIONTAG=$(git describe --abbrev=0 --tags)
 	fi
 
-	LDFLAGS="-s -w -buildid= -X github.com/v2fly/v2ray-core/v5.codename=${CODENAME} -X github.com/v2fly/v2ray-core/v5.build=${BUILDNAME} -X github.com/v2fly/v2ray-core/v5.version=${VERSIONTAG}"
+	LDFLAGS="-s -w -buildid= -X github.com/hf6420/v2ray-core/v5.codename=${CODENAME} -X github.com/hf6420/v2ray-core/v5.build=${BUILDNAME} -X github.com/hf6420/v2ray-core/v5.version=${VERSIONTAG}"
 
 	echo ">>> Compile v2ray ..."
 	env CGO_ENABLED=0 go build -o "$TMP"/v2ray"${EXESUFFIX}" -ldflags "$LDFLAGS" ./main
@@ -41,13 +41,13 @@ build_v2() {
 
 build_dat() {
 	echo ">>> Download latest geoip.dat"
-	curl -s -L -o "$TMP"/geoip.dat "https://github.com/v2fly/geoip/raw/release/geoip.dat"
+	curl -s -L -o "$TMP"/geoip.dat "https://github.com/hf6420/geoip/raw/release/geoip.dat"
 
 	echo ">>> Download latest geoip-only-cn-private.dat"
-	curl -s -L -o "$TMP"/geoip-only-cn-private.dat "https://github.com/v2fly/geoip/raw/release/geoip-only-cn-private.dat"
+	curl -s -L -o "$TMP"/geoip-only-cn-private.dat "https://github.com/hf6420/geoip/raw/release/geoip-only-cn-private.dat"
 
 	echo ">>> Download latest geosite.dat"
-	curl -s -L -o "$TMP"/geosite.dat "https://github.com/v2fly/domain-list-community/raw/release/dlc.dat"
+	curl -s -L -o "$TMP"/geosite.dat "https://github.com/hf6420/domain-list-community/raw/release/dlc.dat"
 }
 
 copyconf() {
