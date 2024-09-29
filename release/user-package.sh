@@ -18,7 +18,7 @@ cleanup() { rm -rf "$TMP"; }
 trap cleanup INT TERM ERR
 
 get_source() {
-	echo ">>> Clone hf6420/v2ray-core repo..."
+	echo ">>> Clone v2fly/v2ray-core repo..."
 	git clone https://github.com/hf6420/v2ray-core.git
 	cd v2ray-core
 	go mod download
@@ -41,13 +41,13 @@ build_v2() {
 
 build_dat() {
 	echo ">>> Download latest geoip.dat"
-	curl -s -L -o "$TMP"/geoip.dat "https://github.com/hf6420/geoip/raw/release/geoip.dat"
+	curl -s -L -o "$TMP"/geoip.dat "https://github.com/v2fly/geoip/raw/release/geoip.dat"
 
 	echo ">>> Download latest geoip-only-cn-private.dat"
-	curl -s -L -o "$TMP"/geoip-only-cn-private.dat "https://github.com/hf6420/geoip/raw/release/geoip-only-cn-private.dat"
+	curl -s -L -o "$TMP"/geoip-only-cn-private.dat "https://github.com/v2fly/geoip/raw/release/geoip-only-cn-private.dat"
 
 	echo ">>> Download latest geosite.dat"
-	curl -s -L -o "$TMP"/geosite.dat "https://github.com/hf6420/domain-list-community/raw/release/dlc.dat"
+	curl -s -L -o "$TMP"/geosite.dat "https://github.com/v2fly/domain-list-community/raw/release/dlc.dat"
 }
 
 copyconf() {
