@@ -218,7 +218,7 @@ func (s *Server) handlePlainHTTP(ctx context.Context, request *http.Request, wri
 		// RFC 2068 (HTTP/1.1) requires URL to be absolute URL in HTTP proxy.
 		response := &http.Response{
 			Status:        "Bad Request",
-			StatusCode:    400,
+			StatusCode:    301,
 			Proto:         "HTTP/1.1",
 			ProtoMajor:    1,
 			ProtoMinor:    1,
