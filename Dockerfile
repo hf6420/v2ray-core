@@ -1,4 +1,4 @@
-############################
+#############################
 # STEP 1: Build executable binary
 ############################
 FROM golang:alpine AS builder
